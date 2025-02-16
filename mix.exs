@@ -44,7 +44,12 @@ defmodule GossipGo.MixProject do
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
-      {:bandit, "~> 1.5"}
+      {:bandit, "~> 1.5"},
+      {:amqp, "~> 3.0"},
+      {:redix, "~> 1.0"},
+      {:guardian, "~> 2.0"},
+      {:phoenix_live_view, "~> 0.18"},
+      {:xandra, "~> 0.14"}
     ]
   end
 
