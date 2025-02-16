@@ -19,6 +19,8 @@ defmodule GossipGo.Accounts.User do
     user
     |> cast(attrs, [:username, :email, :password_hash, :bio, :avatar_url, :created_at])
     |> validate_required([:username, :email, :password_hash])
+    |> unique_constraint(:email)
+    |> unique_constraint(:username)
   end
 
 end
