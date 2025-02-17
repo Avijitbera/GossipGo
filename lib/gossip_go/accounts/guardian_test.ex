@@ -28,5 +28,10 @@ defmodule GossipGo.Accounts.GuardianTest do
       assert {:ok, resource} = Guardian.resource_from_claims(claims)
       assert resource.user_id == user.user_id
     end
+
+    test "resource_from_claims/1 returns error for invalid claims" do
+      claims = %{"sub" => "invalid_user_id"}
+      assert {:error, :resource_not_found} = Guardian.resource_from_claims(claims)
+    end
   end
 end
