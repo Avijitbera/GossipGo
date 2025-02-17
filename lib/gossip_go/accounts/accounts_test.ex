@@ -27,6 +27,17 @@ defmodule GossipGo.Accounts.AccountsTest do
       assert authenticated_user.user_id == user.user_id
     end
 
+    test "authenticate_user/2 returns error with invalid credentials" do
+      user_attrs = %{
+        username: "testuser",
+        email: "test@example.com",
+        password: "password123"
+      }
+
+      {:ok, _user} = Accounts.register_user(user_attrs)
+      assert {:error, :invalid_credentials} = Accounts.authenticate_user("test@example.com", "wrongpassword")
+    end
+
   end
 
 end
